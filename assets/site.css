@@ -1,0 +1,274 @@
+/* TwoThirds Studio: one stylesheet for every page. Tokens match Trashley's theme ("Bold & playful"). */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("fonts/BricolageGrotesque.ttf") format("truetype");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+:root {
+  --bg: #fff6e5;
+  --surface: #ffffff;
+  --text: #141414;
+  --muted: #4a443c;
+  --outline: #141414;
+  --shadow: #141414;
+  --coral: #ff7a45;
+  --lime: #c8f169;
+  --blue: #2d4bff;
+  --link: #2d4bff;
+  --on-accent: #141414;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16130f;
+    --surface: #25211b;
+    --text: #fff6e5;
+    --muted: #cfc5b3;
+    --outline: #fff6e5;
+    --shadow: #ff7a45;
+    --link: #9fb0ff;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #16130f;
+  --surface: #25211b;
+  --text: #fff6e5;
+  --muted: #cfc5b3;
+  --outline: #fff6e5;
+  --shadow: #ff7a45;
+  --link: #9fb0ff;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+}
+
+a {
+  color: var(--link);
+  font-weight: 700;
+  text-underline-offset: 0.15em;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.wordmark {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+}
+
+.crumbs {
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* Type */
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 8vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 2.5rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p,
+ul {
+  margin: 0 0 1rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}
+
+.lede {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--muted);
+  max-width: 34rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* Sticker cards: 2px outline, hard offset shadow, no blur */
+.card {
+  background: var(--surface);
+  border: 2px solid var(--outline);
+  border-radius: 22px;
+  box-shadow: 5px 5px 0 var(--shadow);
+  padding: 1.5rem;
+}
+
+.card--coral {
+  background: var(--coral);
+  color: var(--on-accent);
+  border-color: #141414;
+}
+
+.card--coral a {
+  color: var(--on-accent);
+}
+
+.app-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.app-card img {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  border: 2px solid var(--outline);
+}
+
+.app-card p {
+  margin: 0.4rem 0 0.75rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+}
+
+.pill {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.15rem 0.7rem;
+  border: 2px solid var(--outline);
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--on-accent);
+}
+
+.summary {
+  margin: 1.5rem 0 1rem;
+}
+
+.summary h2 {
+  margin-top: 0;
+}
+
+.summary ul {
+  margin-bottom: 0;
+}
+
+.app-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-hero img {
+  width: 112px;
+  height: 112px;
+  border-radius: 26px;
+  border: 2px solid var(--outline);
+  box-shadow: 5px 5px 0 var(--shadow);
+}
+
+.app-hero h1 {
+  margin-bottom: 0.25rem;
+}
+
+.site-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--outline);
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.site-footer p {
+  margin: 0 0 0.5rem;
+}
+
+@media (max-width: 30rem) {
+  .app-card {
+    grid-template-columns: 1fr;
+  }
+
+  .app-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.app-card__title {
+  margin: 0;
+}
+
+.links--spaced {
+  margin-top: 0.75rem;
+}
